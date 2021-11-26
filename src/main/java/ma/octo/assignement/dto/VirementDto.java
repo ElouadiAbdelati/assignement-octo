@@ -1,52 +1,26 @@
 package ma.octo.assignement.dto;
 
+import lombok.AccessLevel;
+import lombok.Data;
+import lombok.experimental.FieldDefaults;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
-import java.util.Date;
 
+@Data
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class VirementDto {
-  private String nrCompteEmetteur;
-  private String nrCompteBeneficiaire;
-  private String motif;
-  private BigDecimal montantVirement;
-  private Date date;
 
-  public String getNrCompteEmetteur() {
-    return nrCompteEmetteur;
-  }
+   @NotNull(message = "Le numéro de compte source est obligatoire")
+   String numeroCompteEmetteur;
 
-  public void setNrCompteEmetteur(String nrCompteEmetteur) {
-    this.nrCompteEmetteur = nrCompteEmetteur;
-  }
+   @NotNull(message = "Le numéro de compte destinataire est obligatoire")
+   String numeroCompteBeneficiaire;
 
-  public String getNrCompteBeneficiaire() {
-    return nrCompteBeneficiaire;
-  }
+   @NotBlank(message = "Le motif du virement est obligatoire")
+   String motif;
 
-  public void setNrCompteBeneficiaire(String nrCompteBeneficiaire) {
-    this.nrCompteBeneficiaire = nrCompteBeneficiaire;
-  }
-
-  public BigDecimal getMontantVirement() {
-    return montantVirement;
-  }
-
-  public void setMontantVirement(BigDecimal montantVirement) {
-    this.montantVirement = montantVirement;
-  }
-
-  public String getMotif() {
-    return motif;
-  }
-
-  public void setMotif(String motif) {
-    this.motif = motif;
-  }
-
-  public Date getDate() {
-    return date;
-  }
-
-  public void setDate(Date date) {
-    this.date = date;
-  }
+   @NotNull(message = "Le montant du virement est obligatoire")
+   BigDecimal montant;
 }
