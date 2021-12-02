@@ -1,20 +1,19 @@
 package ma.octo.assignement.service.impl;
 
 
-import ma.octo.assignement.domain.Compte;
+import lombok.RequiredArgsConstructor;
 import ma.octo.assignement.domain.Utilisateur;
 import ma.octo.assignement.repository.UtilisateurRepository;
 import ma.octo.assignement.response.Result;
 import ma.octo.assignement.service.UtilisateurService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class UtilisateurServiceImpl implements UtilisateurService {
-    @Autowired
-    private UtilisateurRepository utilisateurRepository;
+    private final UtilisateurRepository utilisateurRepository;
 
     @Override
     public Result<List<Utilisateur>> findAll() {

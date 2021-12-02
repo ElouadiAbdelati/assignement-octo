@@ -1,20 +1,19 @@
 package ma.octo.assignement.service.impl;
 
 
+import lombok.RequiredArgsConstructor;
 import ma.octo.assignement.response.Result;
 import ma.octo.assignement.domain.Compte;
 import ma.octo.assignement.repository.CompteRepository;
 import ma.octo.assignement.service.CompteService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class CompteServiceImpl implements CompteService {
-
-    @Autowired
-    private CompteRepository compteRepository;
+    private final  CompteRepository compteRepository;
 
     @Override
     public Result<List<Compte>> findAll() {

@@ -1,7 +1,6 @@
 package ma.octo.assignement.service;
 
 
-import ma.octo.assignement.domain.Compte;
 import ma.octo.assignement.domain.Utilisateur;
 import ma.octo.assignement.response.Result;
 

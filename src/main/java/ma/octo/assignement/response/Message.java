@@ -9,5 +9,4 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Message {
     private String label;
-    private MessageType messageType;
 }

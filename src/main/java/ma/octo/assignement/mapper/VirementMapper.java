@@ -4,12 +4,16 @@ import ma.octo.assignement.domain.Compte;
 import ma.octo.assignement.domain.Virement;
 import ma.octo.assignement.dto.VirementDto;
 
-import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class VirementMapper {
 
     private VirementMapper() {
+    }
 
+    public static List<VirementDto> toList(List<Virement> virements) {
+        return virements.stream().map(VirementMapper::toVirementDto).collect(Collectors.toList());
     }
 
     public static VirementDto toVirementDto(Virement virement) {
@@ -17,13 +21,13 @@ public class VirementMapper {
         virementDto.setMontant(virement.getMontant());
         virementDto.setNumeroCompteEmetteur(virement.getCompteEmetteur().getNumero());
         virementDto.setNumeroCompteBeneficiaire(virement.getCompteBeneficiaire().getNumero());
+        virementDto.setDateExecution(virement.getDateExecution());
         return virementDto;
     }
 
     public static Virement toVirement(VirementDto virementDto) {
         Virement virement = new Virement();
         virement.setMontant(virementDto.getMontant());
-        virement.setDateExecution(new Date());
         Compte compteEmetteur = new Compte();
         compteEmetteur.setNumero(virementDto.getNumeroCompteEmetteur());
         virement.setCompteEmetteur(compteEmetteur);

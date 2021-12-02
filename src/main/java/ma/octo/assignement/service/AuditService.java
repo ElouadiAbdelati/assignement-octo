@@ -1,8 +1,11 @@
 package ma.octo.assignement.service;
 
 
-import ma.octo.assignement.domain.enums.OperationType;
+import ma.octo.assignement.domain.Versement;
+import ma.octo.assignement.domain.Virement;
 
 public interface AuditService {
-    void save(String message, OperationType operationType);
+    void saveAuditVirement(Virement virement);
+    void saveAuditVersement(Versement versement);
+
 }

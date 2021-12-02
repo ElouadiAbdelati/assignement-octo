@@ -1,25 +1,18 @@
-package ma.octo.assignement.domain;
+package ma.octo.assignement.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import ma.octo.assignement.domain.enums.OperationType;
+import java.time.Instant;
 
-import javax.persistence.*;
-
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "AUDIT")
-public class Audit {
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+public class AuditVirementDto {
   private Long id;
-
-  @Column(length = 100)
   private String message;
-
-  @Enumerated(EnumType.STRING)
   private OperationType operationType;
+  private Instant createdAt;
+  private  String version;
 }

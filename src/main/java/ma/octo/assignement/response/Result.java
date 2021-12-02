@@ -20,7 +20,7 @@ public class Result<T> {
     }
 
     private void addMessage(String messageText, MessageType type) {
-        Message msg = new Message(messageText, type);
+        Message msg = new Message(messageText);
         if (type == MessageType.ERROR) {
             if (getErrors() == null) errors = new ArrayList<>();
             getErrors().add(msg);

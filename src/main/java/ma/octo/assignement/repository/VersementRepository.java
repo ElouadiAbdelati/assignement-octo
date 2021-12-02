@@ -1,9 +1,9 @@
 package ma.octo.assignement.repository;
 
-import ma.octo.assignement.domain.Audit;
+import ma.octo.assignement.domain.Versement;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface AuditRepository extends JpaRepository<Audit, Long> {
+public interface VersementRepository extends JpaRepository<Versement, Long> {
 }
